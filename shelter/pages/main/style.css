@@ -1,3 +1,5 @@
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -26,6 +28,98 @@ header .wrapper {
     justify-content: space-between;
 }
 
+.logo__title {
+    /* logo_title */
+
+font-family: Georgia;
+font-style: normal;
+font-weight: normal;
+font-size: 32px;
+line-height: 110%;
+/* or 35px */
+
+/* color-primary */
+
+color: #F1CDB3;
+}
+
+.log__subtitle {
+    /* logo_subtitle */
+
+font-family: Arial;
+font-style: normal;
+font-weight: normal;
+font-size: 13px;
+line-height: 15px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+letter-spacing: 0.1em;
+
+/* color-light-xl */
+
+color: #FFFFFF;
+}
+
+h2 {
+
+font-family: Georgia;
+font-style: normal;
+font-weight: normal;
+font-size: 44px;
+line-height: 130%;
+/* or 57px */
+
+color: #FFFFFF;
+}
+
+h3 {
+    /* h3 */
+
+font-family: Georgia;
+font-style: normal;
+font-weight: normal;
+font-size: 35px;
+line-height: 130%;
+/* or 45px */
+
+letter-spacing: 0.06em;
+}
+
+h4 {
+    /* h4 */
+
+font-family: Georgia;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 115%;
+/* identical to box height, or 23px */
+
+letter-spacing: 0.06em;
+}
+
+.paragraph-l {
+    /* paragraph-l */
+
+font-family: Arial;
+font-style: normal;
+font-weight: normal;
+font-size: 15px;
+line-height: 160%;
+/* or 24px */
+
+display: flex;
+align-items: center;
+
+/* color-dark-s */
+
+color: #CDCDCD;
+}
+
+
+
 .hero__section {
     margin-top: -120px;
     padding-top: 180px;
@@ -37,3 +131,195 @@ header .wrapper {
     display: flex;
     justify-content: space-between;
 }
+
+
+
+/***** ABOUT SECTION *****************/
+
+.about__section {
+    padding-top: 80px;
+    padding-bottom: 100px;
+    background: #FFFFFF;
+}
+
+
+.about__section .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about__content {
+    display: flex;
+    flex-direction: column;
+    width: 430px;
+}
+
+
+/*************************************/
+
+
+
+
+/******** PETS **********************/
+
+.pets__section {
+    padding-top: 80px;
+    padding-bottom: 100px;
+    background: #F6F6F6;
+}
+
+.pets__section .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slider__container {
+    display: flex;
+}
+
+.card {
+    /* Auto Layout */
+
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 30px 0px 0px 35px;
+
+width: 270px;
+height: 435px;
+
+/* color-light-s */
+
+background: #FAFAFA;
+border-radius: 9px;
+}
+
+/************************************/
+
+
+
+
+
+
+
+/************* DONATE ***************/
+
+
+.donate__section {
+    padding-top: 80px;
+    padding-bottom: 100px;
+    background: #F6F6F6;
+}
+
+.donate__section .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.donation__description {
+width: 380px;
+height: 72px;
+
+/* donation-description */
+
+font-family: Arial;
+font-style: italic;
+font-weight: normal;
+font-size: 12px;
+line-height: 18px;
+/* or 150% */
+
+display: flex;
+align-items: center;
+
+/* color-dark-m */
+
+color: #B2B2B2;
+}
+
+.credit__card {
+
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+padding: 10px 0px 0px 15px;
+
+width: 349px;
+height: 43px;
+
+/* color-primary */
+
+background: #F1CDB3;
+border-radius: 9px;
+}
+
+.credit__card h4 {
+width: 274px;
+height: 23px;
+
+/* h4 */
+
+font-family: Georgia;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 115%;
+/* identical to box height, or 23px */
+
+display: flex;
+align-items: center;
+letter-spacing: 0.06em;
+
+/* color-dark-l */
+
+color: #545454;
+}
+
+
+/************************************/
+
+
+
+
+
+
+
+
+
+/******* FOOTER ***********************/
+
+footer {
+    background: url('../../assets/noise_transparent.svg'),
+    radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+    padding-top: 40px;
+}
+
+footer .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 315px;
+}
+
+footer h3 {
+    color: #FFFFFF;
+    height: 90px;
+}
+
+footer h4 {
+    color: #F1CDB3;
+}
+
+footer section {
+    margin-bottom: 60px;
+    height: 234px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 160px;
+}
+
+/**************************************/
