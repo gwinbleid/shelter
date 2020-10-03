@@ -1,0 +1,368 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "Georgia";
+    src: url("../../assets/fonts/georgia_regular.ttf") format("opentype");
+    font-weight: normal;
+}
+
+/************************* VARIABLES**************/
+
+$color-light-xl: #FFFFFF;
+$color-light-l: #F6F6F6;
+$color-light-s: #FAFAFA;
+$color-dark-s: #CDCDCD;
+$color-dark-m: #B2B2B2;
+$color-dark-l: #545454;
+$color-dark-xl: #4C4C4C;
+$color-dark-2xl: #444444;
+$color-dark-3xl: #292929;
+$color-primary: #F1CDB3;
+$color-primary-light: #FDDCC4;
+$start-screen-gradient-background: url(noise_lines_transparent@2X.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+$footer-gradient-background: url(noise_lines_transparent@2X.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+
+/**************************************************/
+
+
+/***************** MIXINS  ************************/
+
+
+@mixin flex ($dir: row, $justify: space-between, $align: center) {
+    display: flex;
+    flex-direction: $dir,;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin georgia_normal ($font-size, $line-height) {
+    font-family: Georgia;
+    font-style: normal;
+    font-weight: normal;
+    font-size: $font-size;
+    line-height: $line-height;
+}
+
+@mixin arial_normal ($font-size, $line-height) {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: $font-size;
+    line-height: $line-height;
+}
+
+
+/****************************************************/
+
+/************ TEXTING CLASSES ***********************/
+
+.logo__title {
+    @include georgia_normal(32px, 110%);
+    color: $color-dark-l;
+    text-align: right;
+    letter-spacing: 0.05em;
+    width: 100%;
+}
+
+.log__subtitle {
+    @include arial_normal(13px, 15px);
+    letter-spacing: 0.1em;
+    color: $color-dark-3xl;
+    text-align: right;
+}
+
+h2 {
+    @include georgia_normal(44px, 130%);
+    color: $color-light-xl;
+}
+    
+h3 {
+    @include georgia_normal(35px, 130%);
+    letter-spacing: 0.06em;
+}
+    
+h4 {
+    @include georgia_normal(20px, 115%);
+    letter-spacing: 0.06em;
+}
+
+h5 {
+    @include georgia_normal(15px, 17px);
+    letter-spacing: 0.105em;;
+}
+    
+.paragraph-l {
+    display: flex;
+    align-items: center;
+
+    @include arial_normal(15px, 160%);
+}
+
+.pets__card__title {
+    @include georgia_normal(20px, 23px);
+
+    text-align: center;
+    letter-spacing: 0.06em;
+    color: $color-dark-l;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.donation__description {
+    @include arial_normal(12px, 18px);
+    font-style: italic;
+    color: $color-dark-m;
+}
+
+/****************************************************/
+
+/**************** BUTTONS  **************************/
+
+.btn__primary {
+    @include flex(column, center, flex-start);
+    @include georgia_normal(17px, 130%);
+
+
+    padding: 15px 45px 15px 45px;
+
+    border: none;
+    background: #F1CDB3;
+    border-radius: 100px;
+    letter-spacing: 0.09em;
+    color: $color-dark-3xl;
+
+    &:hover {
+        cursor: pointer;
+        background: $color-primary-light;
+    }
+}
+
+.btn__secondary {
+    @include flex(column, center, center);
+    @include georgia_normal(17px, 130%);
+
+    padding: 0px;
+
+    width: 187px;
+    height: 52px;
+    border: 2px solid $color-primary;
+    border-radius: 100px;
+    letter-spacing: 0.06em;
+    color: $color-dark-3xl;
+    background: $color-light-l;
+
+    &:hover {
+        cursor: pointer;
+        background: $color-primary-light;
+    }
+}
+
+.slider__control {
+    @include flex(column, center, center);
+    @include georgia_normal(20px, 23px);
+    padding: 23px 19px 23px 19px;
+
+    width: 52px;
+    height: 52px;
+
+    border: 2px solid $color-primary;
+    box-sizing: border-box;
+    background: $color-light-l;
+    border-radius: 100px;
+
+    &:hover {
+        cursor: pointer;
+        background: $color-primary-light;
+        border: 2px solid $color-primary-light;
+    }
+
+    &:nth-child(2n) {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+/******************************************************/
+
+
+
+
+
+.wrapper {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+
+header, main, section, footer {
+    width: 100%;
+}
+
+header {
+    background: transparent;
+    height: 120px;
+
+    .wrapper {
+        @include flex(row, space-between, center);
+        padding: 30px 40px 30px 40px;
+    }
+}
+
+.shelter__logo {
+    @include flex(column, space-between, flex-end);
+    width: 184px;
+    height: 60px;
+}
+
+.header__nav {
+    ul {
+        @include flex(row, space-between, center);
+        list-style-type: none;
+
+        .nav__link {
+            text-decoration: none;
+            margin-left: 35px;
+            color: $color-dark-l;
+
+            &:hover {
+                cursor: pointer;
+                color: $color-dark-3xl;
+            }
+        }
+
+        .active__link {
+            color: $color-dark-l;
+            border-bottom: 3px solid $color-primary;
+        }
+    }
+}
+
+
+
+
+/******** PETS **********************/
+
+.pets__section {
+    background: $color-light-l;
+
+    .wrapper {
+        padding: 80px 40px 100px 40px;
+
+        .section__content__wrapper {
+            @include flex(column, flex-start, center);
+
+            h3 {
+                width: 400px;
+                height: 90px;
+                color: $color-dark-l;
+                text-align: center;
+                /*letter-spacing: 6.5px;*/
+            }
+        }
+        
+
+        
+    }
+}
+
+.slider__container {
+    @include flex(column, space-between, center);
+    margin-top: 60px;
+    width: 100%;
+
+    .slider__panel {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 40px;
+        grid-row-gap: 30px;
+
+        .card {
+            @include flex(column, flex-start , center);
+    
+            background-color: $color-light-s;
+            border-radius: 9px;
+            width: 270px;
+            height: 435px;
+            /*margin-right: 40px;
+            margin-bottom: 30px;*/
+    
+            &:hover {
+                cursor: pointer;
+                background-color: $color-light-xl;
+            }
+    
+            &:nth-child(4n) {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .slider__controls {
+        @include flex(row, center, center);
+        margin-top: 60px;
+    }
+}
+
+
+
+
+
+/******* FOOTER ***********************/
+
+footer {
+    background: $footer-gradient-background;
+    height: 350px;
+
+    .wrapper {
+        padding: 40px 40px 0 40px;
+        .section__content__wrapper {
+            @include flex(row, space-between, flex-end);
+
+            section {
+                @include flex(column, space-between, flex-start);
+                margin-bottom: 60px;
+                height: 234px;
+
+                h3 {
+                    height: 90px;
+                    color: $color-light-l;
+                }
+
+                
+
+                .footer__nav__link {
+                    @include flex(row, flex-start, center);
+                    text-decoration: none;
+                    color: $color-primary;
+
+                    h4 {
+                        margin-left: 20px;
+                    }
+                }
+            }
+
+            .footer__contacts__section {
+                max-width: 283px;
+                margin-right: 160px;
+            }
+
+            .footer__image__wrapper {
+                margin-left: 160px;
+                height: 310px;
+                width: 300px;
+                img {
+                    height: 310px;
+                    width: 300px;
+                }
+            }
+
+        }
+    }
+}
+
+/**************************************/
