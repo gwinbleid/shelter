@@ -15,14 +15,33 @@
                 <div class="log__subtitle">Shelter for pets in Boston</div>
             </div>
 
-            <div class="header__nav">
+            <div class="burger__button">
+                <input id="burger" type="checkbox" onclick="disableBody()" />
+
+                <label for="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+
+                <nav class="burger__nav">
+                    <ul>
+                        <li><a class="nav__link paragraph-l" href="#">About the shelter</a></li>
+                        <li><a class="active__link nav__link paragraph-l" href="#">Our pets</a></li>
+                        <li><a class="nav__link paragraph-l" href="#">Help the shelter</a></li>
+                        <li><a class="nav__link paragraph-l" href="#">Contacts</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <nav class="header__nav">
                 <ul>
                     <li><a class="nav__link paragraph-l" href="#">About the shelter</a></li>
                     <li><a class="active__link nav__link paragraph-l" href="#">Our pets</a></li>
                     <li><a class="nav__link paragraph-l" href="#">Help the shelter</a></li>
                     <li><a class="nav__link paragraph-l" href="#">Contacts</a></li>
                 </ul>
-            </div>
+            </nav>
 
         </div>
     </header>
@@ -31,8 +50,10 @@
         <section class="pets__section">
             <div class="wrapper">
                 <div class="section__content__wrapper">
-                    <h3>Our friends who
-                        are looking for a house</h3>
+                    <h3>
+                        <span style="margin-left: 30px; margin-right: 30px;">Our friends who</span>
+                        <span>are looking for a house</span>
+                    </h3>
 
                     <div class="slider__container">
 
@@ -55,35 +76,35 @@
                                 <button class="btn__secondary">Learn more</button>
                             </div>
     
-                            <div class="card">
+                            <div class="card mobile__invisible">
                                 <img src="../../assets/images/pets-sophia.png" alt="">
                                 <p class="pets__card__title">Sophia</p>
                                 <button class="btn__secondary">Learn more</button>
                             </div>
     
     
-                            <div class="card">
+                            <div class="card mobile__invisible">
                                 <img src="../../assets/images/pets-timmy.png" alt="">
                                 <p class="pets__card__title">Timmy</p>
                                 <button class="btn__secondary">Learn more</button>
                             </div>
     
     
-                            <div class="card">
+                            <div class="card mobile__invisible">
                                 <img src="../../assets/images/pets-charly.png" alt="">
                                 <p class="pets__card__title">Charly</p>
                                 <button class="btn__secondary">Learn more</button>
                             </div>
     
     
-                            <div class="card">
+                            <div class="card tablet__invisible mobile__invisible">
                                 <img src="../../assets/images/pets-scarlet.png" alt="">
                                 <p class="pets__card__title">Scarlett</p>
                                 <button class="btn__secondary">Learn more</button>
                             </div>
     
     
-                            <div class="card">
+                            <div class="card tablet__invisible mobile__invisible">
                                 <img src="../../assets/images/pets-freddie.png" alt="">
                                 <p class="pets__card__title">Freddie</p>
                                 <button class="btn__secondary">Learn more</button>
@@ -124,39 +145,42 @@
     <footer>
         <div class="wrapper">
             <div class="section__content__wrapper">
-                <section class="footer__contacts__section">
-                    <h3>
-                        For questions and suggestions
-                    </h3>
-                    <a href="" class="footer__nav__link">
-                        <img src="../../assets/icons/mail.svg">
-                        <h4>email@shelter.com</h4>
-                    </a>
-                    <a href="" class="footer__nav__link">
-                        <img src="../../assets/icons/phone.svg">
-                        <h4>+13 674 567 75 54</h4>
-                    </a>
-                </section>
-    
-                <section class="footer__location__section">
-                    <h3>We are waiting for your visit</h3>
-                    <a href="" class="footer__nav__link">
-                        <img src="../../assets/icons/pin.svg">
-                        <h4>1 Central Street, Boston (entrance from the store)</h4>
-                    </a>
-                    <a href="" class="footer__nav__link">
-                        <img src="../../assets/icons/pin.svg">
-                        <h4>18 South Park, London </h4>
-                    </a>
-                    
-                </section>
+                <div class="footer__sections">
+                    <section class="footer__contacts__section">
+                        <h3>
+                            For questions and suggestions
+                        </h3>
+                        <a href="" class="footer__nav__link">
+                            <img src="../../assets/icons/mail.svg">
+                            <h4>email@shelter.com</h4>
+                        </a>
+                        <a href="" class="footer__nav__link">
+                            <img src="../../assets/icons/phone.svg">
+                            <h4>+13 674 567 75 54</h4>
+                        </a>
+                    </section>
+        
+                    <section class="footer__location__section">
+                        <h3>We are waiting for your visit</h3>
+                        <a href="#" class="footer__nav__link">
+                            <img src="../../assets/icons/pin.svg">
+                            <h4>1 Central Street, Boston (entrance from the store)</h4>
+                        </a>
+                        <a href="#" class="footer__nav__link">
+                            <img src="../../assets/icons/pin.svg">
+                            <h4>18 South Park, London </h4>
+                        </a>
+                        
+                    </section>
+                </div>
     
                 <div class="footer__image__wrapper">
-                    <img src="../../assets/images/footer-puppy.png" alt="">
+                    <img src="../../assets/images/footer-puppy.png" alt="footer puppy">
                 </div>
             </div>
             
         </div>
     </footer>
+    <script src="index.js"></script>
 </body>
 </html>
