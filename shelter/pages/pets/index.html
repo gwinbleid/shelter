@@ -58,78 +58,34 @@
                     <div class="slider__container">
 
                         <div class="slider__panel">
-                            <div class="card">
+                            <!-- <div class="card">
                                 <img src="../../assets/images/pets-katrine.png" alt="">
                                 <p class="pets__card__title">Katrine</p>
                                 <button class="btn__secondary">Learn more</button>
-                            </div>
+                            </div> -->
     
-                            <div class="card">
-                                <img src="../../assets/images/pets-jennifer.png" alt="">
-                                <p class="pets__card__title">Jennifer</p>
-                                <button class="btn__secondary">Learn more</button>
-                            </div>
-    
-                            <div class="card">
-                                <img src="../../assets/images/pets-woody.png" alt="">
-                                <p class="pets__card__title">Woody</p>
-                                <button class="btn__secondary">Learn more</button>
-                            </div>
-    
-                            <div class="card mobile__invisible">
-                                <img src="../../assets/images/pets-sophia.png" alt="">
-                                <p class="pets__card__title">Sophia</p>
-                                <button class="btn__secondary">Learn more</button>
-                            </div>
-    
-    
-                            <div class="card mobile__invisible">
-                                <img src="../../assets/images/pets-timmy.png" alt="">
-                                <p class="pets__card__title">Timmy</p>
-                                <button class="btn__secondary">Learn more</button>
-                            </div>
-    
-    
-                            <div class="card mobile__invisible">
-                                <img src="../../assets/images/pets-charly.png" alt="">
-                                <p class="pets__card__title">Charly</p>
-                                <button class="btn__secondary">Learn more</button>
-                            </div>
-    
-    
-                            <div class="card tablet__invisible mobile__invisible">
-                                <img src="../../assets/images/pets-scarlet.png" alt="">
-                                <p class="pets__card__title">Scarlett</p>
-                                <button class="btn__secondary">Learn more</button>
-                            </div>
-    
-    
-                            <div class="card tablet__invisible mobile__invisible">
-                                <img src="../../assets/images/pets-freddie.png" alt="">
-                                <p class="pets__card__title">Freddie</p>
-                                <button class="btn__secondary">Learn more</button>
-                            </div>
+                            
                         </div>
 
                         <div class="slider__controls">
-                            <button class="slider__control">
+                            <button class="slider__control prev__buttons" onclick="moveToEnd('prev')">
                                 <<
                             </button>
     
-                            <button class="slider__control">
+                            <button class="slider__control prev__buttons" onclick="moveToOne('prev')">
                                 <
                             </button>
 
                             <button class="slider__control">
-                                <span>1</span>
+                                <span id="page__count">1</span>
                             </button>
                             
-                            <button class="slider__control" >
+                            <button class="slider__control next__buttons" onclick="moveToOne('next')">
                                 >
                             </button>
                             
     
-                            <button class="slider__control">
+                            <button class="slider__control next__buttons" onclick="moveToEnd('next')">
                                 >>
                             </button>
                         </div>

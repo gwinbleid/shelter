@@ -89,42 +89,43 @@ const json = [
     }
 ];
 
-function disableBody() {
-    let body = document.querySelector('body');
+const sliderDraw = function() {
+    document.querySelectorAll('.card').forEach(item => item.remove());
+    let arr = [];
 
-    if (body.classList.contains('disable__body')) {
-        body.classList.remove('disable__body');
-    } else {
-        body.classList.add('disable__body');
+    while(arr.length < 3) {
+        let r = Math.floor(Math.random() * json.length - 1) + 1;
+        if(arr.indexOf(r) === -1) arr.push(r);
     }
+
+    
+    constructSlider(arr);
 }
 
-function cardDrawing(pages, cardsCount) {
-    let cards = new Array(cardsCount).fill(1).map((item, index) => {
-        item = json[((pages - 1) * cardsCount) - (7 * pages) + index];
-        return item;
+function constructSlider(arr) {
+        let full = document.querySelectorAll('.full__screen__control');
+        let cards = generateHTML(arr.map(item => json[item]));
+
+        console.log(cards);
+        cards.forEach(element => {
+            full[0].after(element);
+        });
+}
+
+function generateHTML(arr) {
+    return arr.map(item => {
+
+        let div = document.createElement('div');
+        div.classList.add('card');
+        div.innerHTML = `
+            <img src="${item.img}" alt="${item.name}">
+            <p class="pets__card__title">${item.name}</p>
+            <button class="btn__secondary">Learn more</button>`;
+
+        return div;
     });
-
-    console.log(cards);
-}
-
-function panelDraw() {
-    let panel = document.querySelector('.slider__panel');
-    panel.innerHTML = '',
-    page = +document.querySelector('#page__count').innerHTML;
-    let cards;
-
-
-    let width = document.documentElement.clientWidth;
-
-    if (width >= 1280) cards = cardDrawing(page, 8);
-    if (width < 1280 && width >= 768) cards = cardDrawing(page, 6);
-    if (width < 768) cards = cardDrawing(page, 3);
 }
 
 window.onload = function() {
-    let page = document.querySelector('#page__count');
-    page.innerHTML = '1';
-
-    panelDraw();
+    sliderDraw();
 }
