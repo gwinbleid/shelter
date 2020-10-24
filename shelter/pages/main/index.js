@@ -89,6 +89,8 @@ const json = [
     }
 ];
 
+
+
 const sliderDraw = function() {
     document.querySelectorAll('.card').forEach(item => item.remove());
     let arr = [];
@@ -104,7 +106,7 @@ const sliderDraw = function() {
 
 function constructSlider(arr) {
         let full = document.querySelectorAll('.full__screen__control');
-        let cards = generateHTML(arr.map(item => json[item]));
+        let cards = generateHTML(arr.map(item => json[item]), arr);
 
         console.log(cards);
         cards.forEach(element => {
@@ -112,11 +114,18 @@ function constructSlider(arr) {
         });
 }
 
-function generateHTML(arr) {
-    return arr.map(item => {
+function generateHTML(arr, items) {
+
+  console.log(arr, items);
+    return arr.map((item, index) => {
 
         let div = document.createElement('div');
         div.classList.add('card');
+        div.addEventListener('click', function() {
+          modal.style.display = "flex";
+          document.body.style.overflow = 'hidden';
+          drawModal(json[items[index]]);
+        })
         div.innerHTML = `
             <img src="${item.img}" alt="${item.name}">
             <p class="pets__card__title">${item.name}</p>

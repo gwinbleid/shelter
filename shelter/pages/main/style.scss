@@ -29,15 +29,6 @@ $footer-gradient-background: url(noise_lines_transparent@2X.png), radial-gradien
 /**************************************************/
 
 
-/***************** MEDIAS  ************************/
-
-$breakpoints: (phone: 320px, 
-               tablet: 768px, 
-               desktop: 1280px) !default;
-
-/**************************************************/
-
-
 
 
 /***************** MIXINS  ************************/
@@ -158,6 +149,7 @@ h5 {
     border-radius: 100px;
     letter-spacing: 0.09em;
     color: $color-dark-3xl;
+    transition: 0.2s ease;
 
     &:hover {
         cursor: pointer;
@@ -178,6 +170,7 @@ h5 {
     letter-spacing: 0.06em;
     color: $color-dark-3xl;
     background: $color-light-l;
+    transition: 0.6s ease;
 
     &:hover {
         cursor: pointer;
@@ -198,6 +191,8 @@ h5 {
     background: $color-light-l;
     border-radius: 100px;
 
+    transition: 0.6s ease;
+    
     &:hover {
         cursor: pointer;
         background: $color-primary-light;
@@ -695,6 +690,11 @@ header {
         width: 270px;
         height: 435px;
 
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+
         &:hover {
             cursor: pointer;
             background-color: $color-light-xl;
@@ -728,6 +728,16 @@ header {
         }          
     }
 }
+
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
 
 /************************************/
 

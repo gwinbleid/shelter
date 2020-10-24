@@ -89,6 +89,8 @@ const json = [
     }
 ];
 
+let itemsArr = [];
+
 function disableBody() {
     let body = document.querySelector('body');
 
@@ -99,32 +101,140 @@ function disableBody() {
     }
 }
 
-function cardDrawing(pages, cardsCount) {
-    let cards = new Array(cardsCount).fill(1).map((item, index) => {
-        item = json[((pages - 1) * cardsCount) - (7 * pages) + index];
-        return item;
-    });
+function panelDraw() {
+  let itemOnPage;
+  let page = document.querySelector('#page__count').innerHTML;
+  let panel = document.querySelector('.slider__panel');
 
-    console.log(cards);
+  let next_btns = document.querySelectorAll('.next__buttons');
+  let prev_btns = document.querySelectorAll('.prev__buttons')
+
+  panel.innerHTML = '';
+  
+  if (document.documentElement.clientWidth >= 1280) itemOnPage = 8;
+  if (document.documentElement.clientWidth < 1280 && document.documentElement.clientWidth >= 768) itemOnPage = 6;
+  if (document.documentElement.clientWidth < 768) itemOnPage = 3;
+
+  next_btns.forEach(item => {
+    item.classList.remove('inactive');
+    item.disabled = false;
+  });
+
+  prev_btns.forEach(item => {
+    item.classList.remove('inactive');
+    item.disabled = false;
+  });
+  
+  if ((+page + 1) * itemOnPage - 1 > itemsArr.length) { 
+    next_btns.forEach(item => {
+      item.classList.add('inactive');
+      item.disabled = true;
+    });
+  } else if (+page === 1) { 
+    prev_btns.forEach(item => {
+      item.classList.add('inactive');
+      item.disabled = true;
+    });
+  }
+
+  console.log(itemsArr);
+
+  console.log(itemOnPage * (+page - 1));
+  let data = itemsArr
+          .slice(itemOnPage * (page - 1), itemOnPage * (page - 1) + itemOnPage)
+          .map(item => {
+            let data = json[item];
+            let card = document.createElement('div');
+            card.classList.add('card');
+            card.innerHTML = `
+              <img src="${data.img}" alt="Pet Image">
+              <p class="pets__card__title">${data.name}</p>
+              <button class="btn__secondary">Learn more</button>
+            `;
+
+            return card;
+          })
+          .forEach(item => panel.append(item));
+
+  console.log(data);
+  console.log(itemOnPage);
 }
 
-function panelDraw() {
-    let panel = document.querySelector('.slider__panel');
-    panel.innerHTML = '',
-    page = +document.querySelector('#page__count').innerHTML;
-    let cards;
+function generateItems() {
 
+  let arr  = [];
+  while (arr.length < json.length) {
+    let r = Math.floor(Math.random() * json.length - 1) + 1;
+    if(arr.indexOf(r) === -1) arr.push(r);
+  }
 
-    let width = document.documentElement.clientWidth;
+  return [...arr, ...arr, ...arr, ...arr, ...arr, ...arr];
+}
 
-    if (width >= 1280) cards = cardDrawing(page, 8);
-    if (width < 1280 && width >= 768) cards = cardDrawing(page, 6);
-    if (width < 768) cards = cardDrawing(page, 3);
+function moveToOne(side) {
+    let page = document.querySelector('#page__count');
+
+    if (side === 'prev') {
+      if (+page === 1) {
+        return;
+      } else {
+        page.innerHTML = +page.innerHTML - 1;
+        panelDraw();
+      }
+    }
+
+    if (side === 'next') {
+      let itemOnPage;
+      
+      if (document.documentElement.clientWidth >= 1280) itemOnPage = 8;
+      if (document.documentElement.clientWidth < 1280 && document.documentElement.clientWidth >= 768) itemOnPage = 6;
+      if (document.documentElement.clientWidth < 768) itemOnPage = 3;
+
+      if (+page * itemOnPage >= itemsArr.length) {
+        return;
+      } else {
+        page.innerHTML = +page.innerHTML + 1;
+        panelDraw();
+      }
+    }
+}
+
+function moveToEnd(side) {
+  let page = document.querySelector('#page__count');
+
+    if (side === 'prev') {
+        page.innerHTML = 1;
+        panelDraw();
+    }
+
+    if (side === 'next') {
+      let itemOnPage;
+      
+      if (document.documentElement.clientWidth >= 1280) itemOnPage = 8;
+      if (document.documentElement.clientWidth < 1280 && document.documentElement.clientWidth >= 768) itemOnPage = 6;
+      if (document.documentElement.clientWidth < 768) itemOnPage = 3;
+
+      page.innerHTML = (itemsArr.length) / itemOnPage;
+      panelDraw();
+    }
 }
 
 window.onload = function() {
+    document.querySelector('body').style.overflowX = 'hidden';
     let page = document.querySelector('#page__count');
     page.innerHTML = '1';
 
+    itemsArr = generateItems();
     panelDraw();
+}
+
+window.onclick = function(event) {
+  if (document.getElementById('burger').checked === true) {
+    console.log('works');
+    let burger__nav = document.querySelector('.burger__nav');
+    if (event.target === burger__nav) {
+      document.getElementById('burger').checked = false;
+    }
+  }
+  
 }

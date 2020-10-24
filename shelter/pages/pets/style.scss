@@ -199,6 +199,16 @@ h5 {
     }
 }
 
+.inactive {
+    color: $color-dark-s;
+    border: 2px solid $color-dark-s !important;
+
+    &:hover {
+        cursor: pointer;
+        background-color: transparent;
+    }
+}
+
 /******************************************************/
 
 
@@ -285,6 +295,7 @@ header {
         height: 22px;
         width: 30px; 
         z-index: 5;
+        transition: .5s;
 
         span {
             position: absolute;
@@ -312,36 +323,76 @@ header {
     }
 
     input:checked + label { 
-        span {
-            opacity: 0;
-            top: 50%;
-        }
-
-        span:first-child {
-            opacity: 1;
-            transform: rotate(405deg);
-        }
-
-        span:last-child {
-            opacity: 1;
-            transform: rotate(-405deg);
-        }
+        transform: rotate(90deg);
+        transition: .5s;
     }
 
     input ~ .burger__nav {
-        display: none;
-        background: white;
-        position: absolute;
-        top: 120px;
-        left: 0;
-        width: 100%;
-        height: 100px;
-        z-index: 3;
-        transition: .5s;
-        transition-delay: .5s;
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        right: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
         overflow: hidden;
+        background-color: rgb(41,41,41); /* Fallback color */
+        background: rgba(41, 41, 41, 0.6);
+        transition: 1s;
+
+        -webkit-animation-name: animatetop;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-direction: alternate;
+        animation-name: animatetop;
+        animation-duration: 1s;
+        animation-direction: alternate;
+
+
+        /* Add Animation */
+        @-webkit-keyframes animatetop {
+            from { opacity:0} 
+            to { opacity:1}
+        }
+
+        @keyframes animatetop {
+            from { opacity:0}
+            to { opacity:1}
+        }
 
         ul {
+
+            position: absolute;
+            width: 320px;
+            height: 100vh;
+            margin: -70px 0 0 0;
+            padding: 50px;
+            padding-top: 125px;
+            left: 0;
+            transition: 1s;
+  
+            background: #ededed;
+            list-style-type: none;
+            -webkit-font-smoothing: antialiased;
+
+            /* to stop flickering of text in safari */
+  
+            -webkit-animation-name: animatetslide;
+            -webkit-animation-duration: 1s;
+            -webkit-animation-direction: alternate;
+            animation-name: animatetslide;
+            animation-duration: 1s;
+            animation-direction: alternate;
+
+            @-webkit-keyframes animatetslide {
+                from {left: 320px;} 
+                to {left: 0; }
+            }
+  
+            @keyframes animatetslide {
+                from {left: 320px;}
+                to {left:0;}
+            }
+
             @include flex(column, space-between, center);
             list-style-type: none;
 
@@ -368,18 +419,26 @@ header {
     }
 
     input:checked ~ .burger__nav { 
-        @media screen and (max-width: 768px) {
-            @include flex(column, flex-start, center);
-            padding-top: 120px;
-            height: 100vh;
-            transition-delay: 0s;
-            overflow: hidden;
+        display: flex;
+        transition: 1s;
+
+        ul {
+            @media screen and (max-width: 768px) {
+                @include flex(column, flex-start, center);
+                transform: none;
+                opacity: 1;
+                transition: 1s;
+            }
         }
     }
 }
 
 
 /******** PETS **********************/
+
+main {
+    flex: 1;
+}
 
 .pets__section {
     background: $color-light-l;
@@ -433,15 +492,18 @@ header {
         grid-template-columns: repeat(4, 1fr);
         grid-column-gap: 40px;
         grid-row-gap: 30px;
+        height: 915px;
 
         @media screen and (min-width: 768px) and (max-width: 1279px) {
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(3, 1fr);
+            height: auto;
         }
 
         @media screen and (max-width: 767px) {
             grid-template-columns: 1fr;
             grid-template-rows: repeat(3, 1fr);
+            height: auto;
         }
 
         
@@ -455,6 +517,21 @@ header {
             height: 435px;
             /*margin-right: 40px;
             margin-bottom: 30px;*/
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 3s;
+            animation-name: animatetop;
+            animation-duration: 3s;
+
+            /* Add Animation */
+            @-webkit-keyframes animatetop {
+                from {opacity:0} 
+                to {opacity:1}
+            }
+  
+            @keyframes animatetop {
+                from {opacity:0}
+                to {opacity:1}
+            }
     
             &:hover {
                 cursor: pointer;
@@ -464,17 +541,18 @@ header {
             &:nth-child(4n) {
                 margin-right: 0;
             }
-        }
 
-        .tablet__invisible {
             @media screen and (min-width: 768px) and (max-width: 1279px) {
-                display: none;
+                &:nth-child(n + 7) {
+                    display: none;
+                }
             }
-        }
 
-        .mobile__invisible {
             @media screen and (max-width: 767px) {
-                display: none;
+                &:nth-child(n + 4) {
+                    display: none;
+                }
+                
             }
         }
     }
@@ -491,8 +569,15 @@ header {
             margin-top: 42px;
         }
     }
+
+    
 }
 
+.paginator {
+    &:hover {
+        background-color: transparent !important;
+    }
+}
 
 
 
