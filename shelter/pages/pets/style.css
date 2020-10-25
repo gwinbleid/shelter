@@ -307,26 +307,26 @@ header .wrapper {
   position: absolute;
   right: 126px;
   top: 30px;
-  -webkit-animation-name: animatetslide;
+  -webkit-animation-name: animateteLogo;
   -webkit-animation-duration: 1s;
   -webkit-animation-direction: alternate;
-  animation-name: animatetslide;
+  animation-name: animateteLogo;
   animation-duration: 1s;
   animation-direction: alternate;
 }
 
-@-webkit-keyframes animatetslide {
+@-webkit-keyframes animateteLogo {
   from {
-    left: -446px;
+    right: -320px;
   }
   to {
     right: 126px;
   }
 }
 
-@keyframes animatetslide {
+@keyframes animateteLogo {
   from {
-    right: -446px;
+    right: -320px;
   }
   to {
     right: 126px;
@@ -543,7 +543,7 @@ header .wrapper {
     right: -320px;
   }
   to {
-    lerightft: 0;
+    right: 0;
   }
 }
 

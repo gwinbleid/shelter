@@ -222,7 +222,6 @@ h5 {
     }
 }
 
-
 header, main, section, footer {
     width: 100%;
 }
@@ -251,20 +250,20 @@ header {
     right: 126px;
     top: 30px;
 
-    -webkit-animation-name: animatetslide;
+    -webkit-animation-name: animateteLogo;
     -webkit-animation-duration: 1s;
     -webkit-animation-direction: alternate;
-    animation-name: animatetslide;
+    animation-name: animateteLogo;
     animation-duration: 1s;
     animation-direction: alternate;
 
-    @-webkit-keyframes animatetslide {
-        from {left: -446px} 
+    @-webkit-keyframes animateteLogo {
+        from {right: -320px;} 
         to {right: 126px; }
     }
 
-    @keyframes animatetslide {
-        from {right: -446px;}
+    @keyframes animateteLogo {
+        from {right: -320px;}
         to {right: 126px;}
     }
 }
@@ -414,7 +413,7 @@ header {
   
             @keyframes animatetslide {
                 from {right: -320px;}
-                to {lerightft: 0;}
+                to {right: 0;}
             }
 
             @include flex(column, space-between, center);

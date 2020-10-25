@@ -135,6 +135,19 @@ function generateHTML(arr, items) {
     });
 }
 
+function disableBody() {
+  let body = document.querySelector('body');
+  let logo = document.querySelector('.shelter__logo');
+
+  if (body.classList.contains('disable__body')) {
+      body.classList.remove('disable__body');
+      logo.classList.remove('header_Z');
+  } else {
+      body.classList.add('disable__body');
+      logo.classList.add('header_Z');
+  }
+}
+
 window.onload = function() {
     sliderDraw();
 }
