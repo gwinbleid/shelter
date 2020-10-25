@@ -149,6 +149,7 @@ h5 {
   border-radius: 100px;
   letter-spacing: 0.09em;
   color: #292929;
+  outline: none;
 }
 
 .btn__primary:hover {
@@ -183,6 +184,7 @@ h5 {
   letter-spacing: 0.06em;
   color: #292929;
   background: #F6F6F6;
+  outline: none;
 }
 
 .btn__secondary:hover {
@@ -217,6 +219,7 @@ h5 {
           box-sizing: border-box;
   background: #F6F6F6;
   border-radius: 100px;
+  outline: none;
 }
 
 .slider__control:hover {
@@ -240,6 +243,7 @@ h5 {
 .inactive {
   color: #CDCDCD;
   border: 2px solid #CDCDCD !important;
+  outline: none;
 }
 
 .inactive:hover {
@@ -295,6 +299,37 @@ header .wrapper {
 @media screen and (max-width: 767px) {
   header .wrapper {
     padding: 30px 10px 30px 10px;
+  }
+}
+
+.header_Z {
+  z-index: 10;
+  position: absolute;
+  right: 126px;
+  top: 30px;
+  -webkit-animation-name: animatetslide;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-direction: alternate;
+  animation-name: animatetslide;
+  animation-duration: 1s;
+  animation-direction: alternate;
+}
+
+@-webkit-keyframes animatetslide {
+  from {
+    left: -446px;
+  }
+  to {
+    right: 126px;
+  }
+}
+
+@keyframes animatetslide {
+  from {
+    right: -446px;
+  }
+  to {
+    right: 126px;
   }
 }
 
@@ -462,10 +497,10 @@ header .wrapper {
   position: absolute;
   width: 320px;
   height: 100vh;
-  margin: -70px 0 0 0;
+  margin: 0;
   padding: 50px;
   padding-top: 125px;
-  left: 0;
+  right: 0;
   -webkit-transition: 1s;
   transition: 1s;
   background: #ededed;
@@ -496,19 +531,19 @@ header .wrapper {
 
 @-webkit-keyframes animatetslide {
   from {
-    left: 320px;
+    right: -320px;
   }
   to {
-    left: 0;
+    right: 0;
   }
 }
 
 @keyframes animatetslide {
   from {
-    left: 320px;
+    right: -320px;
   }
   to {
-    left: 0;
+    lerightft: 0;
   }
 }
 
