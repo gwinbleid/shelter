@@ -315,7 +315,7 @@ header {
             margin-top: -1px;
             left: 0;
             display: block;
-            background: $color-dark-xl;
+            background: $color-primary;
             transition: .5s;
         }
 
@@ -358,7 +358,7 @@ header {
             right: 0;
             padding: 50px;
             padding-top: 125px;
-            background: #ededed;
+            background: $color-dark-3xl;
             list-style-type: none;
             -webkit-font-smoothing: antialiased;
 
@@ -367,22 +367,22 @@ header {
             list-style-type: none;
 
             li {
-                margin-bottom: 2rem;
+                margin-bottom: 2.5rem;
             }
     
             .nav__link {
                 text-decoration: none;
-                color: $color-dark-l;
+                color: $color-dark-s;
                 font-size: 1.2rem;
 
                 &:hover {
                     cursor: pointer;
-                    color: $color-dark-3xl;
+                    color: $color-light-s;
                 }
             }
     
             .active__link {
-                color: $color-dark-l;
+                color: $color-light-s;
                 border-bottom: 3px solid $color-primary;
             }
         }
@@ -393,7 +393,7 @@ header {
         
         ul {
             @media screen and (max-width: 768px) {
-                @include flex(column, flex-start, center);
+                @include flex(column, center, center);
             }
         }
     }
@@ -1008,6 +1008,7 @@ header {
     }
 
     @media screen and (max-width: 767px) {
+        @include flex(column, center, center);
         order: -1;
         width: 87.5vw;
         margin-left: 0;

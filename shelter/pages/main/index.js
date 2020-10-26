@@ -89,24 +89,108 @@ const json = [
     }
 ];
 
+const sliderArr = [];
+
 let state = {
-  burger__open: false
+  burger__open: false,
+  sliderFirst: null,
+  sliderMiddle: null,
+  sliderLast: null,
+  step: null
 }
 
 let burger = document.querySelector('.burger__nav');
 let logo = document.querySelector('.shelter__logo');
 
 
-const sliderDraw = function() {
+const sliderDraw = function(destination) {
     document.querySelectorAll('.card').forEach(item => item.remove());
     let arr = [];
 
-    while(arr.length < 3) {
+    console.log(state.sliderFirst, state.sliderMiddle, state.sliderLast);
+
+    console.log(state)
+
+    if (!state.step) {
+      console.log('if else works');
+      state.sliderFirst = 0; state.sliderMiddle =1; state.sliderLast = 2;
+      if (document.documentElement.clientWidth >= 1280) {  state.step = 3; }
+      if (document.documentElement.clientWidth < 1280 && document.documentElement.clientWidth >= 768) { state.step = 2;}
+      if (document.documentElement.clientWidth < 768) { state.step = 1; }
+
+      while(sliderArr.length !== json.length) {
         let r = Math.floor(Math.random() * json.length - 1) + 1;
-        if(arr.indexOf(r) === -1) arr.push(r);
+        if(sliderArr.indexOf(r) === -1) sliderArr.push(r);
+      }
     }
 
+    console.log(state.sliderFirst, state.sliderMiddle, state.sliderLast);
     
+    if (destination === 'next') {
+      console.log('next works');
+      console.log(sliderArr);
+      if (state.sliderFirst || state.sliderFirst === 0) {
+        if (state.sliderFirst + state.step > sliderArr.length - 1) {
+          state.sliderFirst = state.sliderFirst + state.step - sliderArr.length;
+        } else {
+          console.log('work her');
+          console.log('before', state.sliderFirst);
+          state.sliderFirst = state.sliderFirst + state.step;
+          console.log(state.sliderFirst);
+        }
+      }
+
+      if (state.sliderMiddle || state.sliderMiddle === 0) {
+        if (state.sliderMiddle + state.step > sliderArr.length - 1) {
+          state.sliderMiddle = state.sliderMiddle + state.step - sliderArr.length;
+          console.log('m', state.sliderMiddle);
+        } else {
+          console.log(state.step);
+          state.sliderMiddle = state.sliderMiddle + state.step;
+          console.log('m', state.sliderMiddle);
+        }
+      }
+
+
+      if (state.sliderLast || state.sliderLast === 0) {
+        if (state.sliderLast + state.step > sliderArr.length - 1) {
+          state.sliderLast = state.sliderLast + state.step - sliderArr.length;
+        } else {
+          state.sliderLast = state.sliderLast + state.step;
+        }
+      }
+  
+    } else if (destination === 'prev' ) {
+      if (state.sliderFirst || state.sliderFirst === 0) {
+        if (state.sliderFirst - state.step < 0) {
+          state.sliderFirst = sliderArr.length + state.sliderFirst - state.step;
+        } else {
+          state.sliderFirst -= state.step;
+        }
+      }
+      if (state.sliderMiddle || state.sliderMiddle === 0) {
+        if (state.sliderMiddle - state.step < 0) {
+          console.log(state.step - state.sliderMiddle);
+          state.sliderMiddle = sliderArr.length + state.sliderMiddle - state.step;
+        } else {
+          state.sliderMiddle -= state.step;
+        }
+      }
+      if (state.sliderLast || state.sliderLast === 0) {
+        if (state.sliderLast - state.step < 0) {
+          state.sliderLast = sliderArr.length + state.sliderLast - state.step;
+        } else {
+          state.sliderLast -= state.step;
+        }
+      }
+    }
+
+    console.log('arr', [state.sliderFirst, state.sliderMiddle, state.sliderLast]);
+
+    arr = [state.sliderFirst, state.sliderMiddle, state.sliderLast]
+      .filter(item => item !== null)
+      .map(item => sliderArr[item]);
+
     constructSlider(arr);
 }
 
@@ -121,8 +205,6 @@ function constructSlider(arr) {
 }
 
 function generateHTML(arr, items) {
-
-  console.log(arr, items);
     return arr.map((item, index) => {
 
         let div = document.createElement('div');

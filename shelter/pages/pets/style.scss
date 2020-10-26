@@ -376,7 +376,7 @@ header {
             list-style-type: none;
 
             li {
-                margin-bottom: 2rem;
+                margin-bottom: 2.5rem;
             }
     
             .nav__link {
@@ -402,7 +402,7 @@ header {
         
         ul {
             @media screen and (max-width: 768px) {
-                @include flex(column, flex-start, center);
+                @include flex(column, center, center);
             }
         }
     }

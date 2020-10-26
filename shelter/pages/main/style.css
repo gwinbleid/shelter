@@ -415,7 +415,7 @@ header .wrapper {
   margin-top: -1px;
   left: 0;
   display: block;
-  background: #4C4C4C;
+  background: #F1CDB3;
   -webkit-transition: .5s;
   transition: .5s;
 }
@@ -464,7 +464,7 @@ header .wrapper {
   right: 0;
   padding: 50px;
   padding-top: 125px;
-  background: #ededed;
+  background: #292929;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   display: -webkit-box;
@@ -484,22 +484,22 @@ header .wrapper {
 }
 
 .burger__button input ~ .burger__nav ul li {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .burger__button input ~ .burger__nav ul .nav__link {
   text-decoration: none;
-  color: #545454;
+  color: #CDCDCD;
   font-size: 1.2rem;
 }
 
 .burger__button input ~ .burger__nav ul .nav__link:hover {
   cursor: pointer;
-  color: #292929;
+  color: #FAFAFA;
 }
 
 .burger__button input ~ .burger__nav ul .active__link {
-  color: #545454;
+  color: #FAFAFA;
   border-bottom: 3px solid #F1CDB3;
 }
 
@@ -518,9 +518,9 @@ header .wrapper {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -1463,6 +1463,19 @@ header .wrapper {
 
 @media screen and (max-width: 767px) {
   .donate__section__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     -webkit-box-ordinal-group: 0;
         -ms-flex-order: -1;
             order: -1;
