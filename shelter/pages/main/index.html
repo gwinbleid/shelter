@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./modal.css">
     <title>Shelter</title>
 </head>
 <body>
     <header>
         <div class="wrapper">
 
-            <div class="shelter__logo">
+            <div id="start" class="shelter__logo">
                 <div class="logo__title">Cozy House</div>
                 <div class="log__subtitle">Shelter for pets in Boston</div>
             </div>
@@ -37,8 +37,8 @@
 
             <nav class="header__nav">
                 <ul>
-                    <li><a class="nav__link paragraph-l" href="#">About the shelter</a></li>
-                    <li><a class="active__link nav__link paragraph-l" href="#">Our pets</a></li>
+                    <li><a class="active__link nav__link paragraph-l" href="#start">About the shelter</a></li>
+                    <li><a class="nav__link paragraph-l" href="../pets/index.html">Our pets</a></li>
                     <li><a class="nav__link paragraph-l" href="#">Help the shelter</a></li>
                     <li><a class="nav__link paragraph-l" href="#">Contacts</a></li>
                 </ul>
@@ -53,7 +53,7 @@
                     <div class="hero__content">
                         <h2>Not only people need a house</h2>
                         <p class="paragraph-l">We offer to give a chance to a little and nice puppy with an extremely wide and open heart. He or she will love you more than anybody else in the world, you will see!</p>
-                        <button class="btn__primary">Make a friend</button>
+                        <a href="../pets/index.html" class="btn__primary">Make a friend</a>
                     </div>
     
                     <div class="hero__image__wrapper">
@@ -72,7 +72,7 @@
                     
                     <div class="about__content">
                         <h3>
-                            <span style="letter-spacing: 3.5px;">About the shelter</span> <span style="letter-spacing: 2.7px;">“Cozy House”</span>
+                            <span>About the shelter</span> <span>“Cozy House”</span>
                         </h3>
 
                         <p class="paragraph-l">
@@ -91,8 +91,10 @@
         <section class="pets__section">
             <div class="wrapper">
                 <div class="section__content__wrapper">
-                    <h3>Our friends who
-                        are looking for a house</h3>
+                    <h3>
+                        <span>Our friends who</span>
+                        <span>are looking for a house</span>
+                    </h3>
 
                     <div class="slider__container">
 
@@ -105,10 +107,6 @@
                             <p class="pets__card__title">Katrine</p>
                             <button class="btn__secondary">Learn more</button>
                         </div>-->
-
-                        
-  
-
 
                         <button class="slider__control full__screen__control" onclick="sliderDraw()">
                             <img src="../../assets/icons/Arrow.svg" alt="prev">
@@ -158,7 +156,7 @@
 
                     </div>
 
-                    <button class="btn__primary">Get know the rest</button>
+                    <a href="../pets/index.html" class="btn__primary">Get to know the rest</a>
                 </div>
                 
             </div>
@@ -167,8 +165,10 @@
         <section class="help__section">
             <div class="wrapper">
                 <div class="section__content__wrapper">
-                    <h3>How you can help
-                        our shelter</h3>
+                    <h3>
+                        <span class="add_span">How you can help</span>
+                        <span class="add_span">our shelter</span>
+                    </h3>
 
                     <div class="help__icons__panel">
 
@@ -284,11 +284,11 @@
                         <h3>
                             For questions and suggestions
                         </h3>
-                        <a href="" class="footer__nav__link">
+                        <a href="mailto:example@example.ru" class="footer__nav__link">
                             <img src="../../assets/icons/mail.svg">
                             <h4>email@shelter.com</h4>
                         </a>
-                        <a href="" class="footer__nav__link">
+                        <a href="tel:+1234567890" class="footer__nav__link">
                             <img src="../../assets/icons/phone.svg">
                             <h4>+13 674 567 75 54</h4>
                         </a>
@@ -296,11 +296,11 @@
         
                     <section class="footer__location__section">
                         <h3>We are waiting for your visit</h3>
-                        <a href="#" class="footer__nav__link">
+                        <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=36.26577,-92.54324" class="footer__nav__link">
                             <img src="../../assets/icons/pin.svg">
                             <h4>1 Central Street, Boston (entrance from the store)</h4>
                         </a>
-                        <a href="#" class="footer__nav__link">
+                        <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=36.26577,-92.54324" class="footer__nav__link">
                             <img src="../../assets/icons/pin.svg">
                             <h4>18 South Park, London </h4>
                         </a>

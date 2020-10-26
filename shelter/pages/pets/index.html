@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal.css">
     <title>Pets</title>
 </head>
 <body>
@@ -24,7 +25,7 @@
                     <span></span>
                 </label>
 
-                <nav class="burger__nav">
+                <nav class="burger__nav animate_top">
                     <ul class="burger__list">
                         <li><a class="nav__link paragraph-l" href="#">About the shelter</a></li>
                         <li><a class="active__link nav__link paragraph-l" href="#">Our pets</a></li>
@@ -67,6 +68,8 @@
                             
                         </div>
 
+                        <!-- The Modal -->
+
                         <div class="slider__controls">
                             <button class="slider__control prev__buttons" onclick="moveToEnd('prev')">
                                 <<
@@ -90,7 +93,36 @@
                             </button>
                         </div>
                         
+                        <div id="myModal" class="modal">
 
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <button class="close">&times;</button>
+    
+                                <div class="modal-content-image">
+                                    <img id="modal__pet" src="" alt="Modal Pet">
+                                </div>
+    
+                                <div class="modal-content-data">
+                                    
+                                    <h3 id="modal__pet__name"></h3>
+                                    <h4 id="modal__type__breed">
+                                        <span id="pet__type"></span> -
+                                        <span id="pet__breed"></span>
+                                    </h4>
+    
+                                    <h5 id="pet__description"></h5>
+    
+                                    <ul id="pet__more__info">
+                                        <li><span>Age:</span><span id="modal__age"></span></li>
+                                        <li><span>Inoculations:</span><span id="modal__inoculations"></span></li>
+                                        <li><span>Diseases:</span><span id="modal__diseases"></span></li>
+                                        <li><span>Parasites:</span><span id="modal__parasites"></span></li>
+                                    </ul>
+                                </div>
+                            </div>
+    
+                        </div>
                     </div>
                 </div>
                 
@@ -106,11 +138,11 @@
                         <h3>
                             For questions and suggestions
                         </h3>
-                        <a href="" class="footer__nav__link">
+                        <a href="mailto:example@example.ru" class="footer__nav__link">
                             <img src="../../assets/icons/mail.svg">
                             <h4>email@shelter.com</h4>
                         </a>
-                        <a href="" class="footer__nav__link">
+                        <a href="tel:+1234567890" class="footer__nav__link">
                             <img src="../../assets/icons/phone.svg">
                             <h4>+13 674 567 75 54</h4>
                         </a>
@@ -118,11 +150,11 @@
         
                     <section class="footer__location__section">
                         <h3>We are waiting for your visit</h3>
-                        <a href="#" class="footer__nav__link">
+                        <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=36.26577,-92.54324" class="footer__nav__link">
                             <img src="../../assets/icons/pin.svg">
                             <h4>1 Central Street, Boston (entrance from the store)</h4>
                         </a>
-                        <a href="#" class="footer__nav__link">
+                        <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=36.26577,-92.54324" class="footer__nav__link">
                             <img src="../../assets/icons/pin.svg">
                             <h4>18 South Park, London </h4>
                         </a>
@@ -138,5 +170,6 @@
         </div>
     </footer>
     <script src="index.js"></script>
+    <script src="modal.js"></script>
 </body>
 </html>

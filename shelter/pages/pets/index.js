@@ -89,11 +89,17 @@ const json = [
     }
 ];
 
+let state = {
+  burger__open: false
+}
+
 let itemsArr = [];
+
+let burger = document.querySelector('.burger__nav');
+let logo = document.querySelector('.shelter__logo');
 
 function disableBody() {
     let body = document.querySelector('body');
-    let logo = document.querySelector('.shelter__logo');
 
     if (body.classList.contains('disable__body')) {
         body.classList.remove('disable__body');
@@ -103,6 +109,29 @@ function disableBody() {
         logo.classList.add('header_Z');
     }
 }
+
+// add closing animation
+
+
+document.querySelector('#burger').addEventListener('click', function() {
+  if (burger.classList.contains('w3-animate-show')) {
+    burger.classList.remove('w3-animate-show');
+  } else {
+    burger.classList.add('w3-animate-show')
+  }
+});
+
+/*burger.addEventListener('animationend', function() {
+  console.log('animate');
+  if (this.classList.contains('w3-animate-show')) {
+    this.classList.remove('w3-animate-show')
+  } else {
+    this.classList.add('w3-animate-show');
+  }
+});*/
+
+
+/************************ */
 
 function panelDraw() {
   let itemOnPage;
@@ -149,6 +178,11 @@ function panelDraw() {
             let data = json[item];
             let card = document.createElement('div');
             card.classList.add('card');
+            card.addEventListener('click', function() {
+              modal.style.display = "flex";
+              document.body.style.overflow = 'hidden';
+              drawModal(data);
+            })
             card.innerHTML = `
               <img src="${data.img}" alt="Pet Image">
               <p class="pets__card__title">${data.name}</p>
@@ -233,10 +267,14 @@ window.onload = function() {
 
 window.onclick = function(event) {
   if (document.getElementById('burger').checked === true) {
-    console.log('works');
-    let burger__nav = document.querySelector('.burger__nav');
-    if (event.target === burger__nav) {
+    if (event.target === burger) {
+      if (burger.classList.contains('w3-animate-show')) {
+        burger.classList.remove('w3-animate-show');
+      } else {
+        burger.classList.add('w3-animate-show')
+      }
       document.getElementById('burger').checked = false;
+      disableBody();
     }
   }
   
