@@ -159,9 +159,6 @@ function panelDraw() {
     });
   }
 
-  console.log(itemsArr);
-
-  console.log(itemOnPage * (+page - 1));
   let data = itemsArr
           .slice(itemOnPage * (page - 1), itemOnPage * (page - 1) + itemOnPage)
           .map(item => {
@@ -182,9 +179,6 @@ function panelDraw() {
             return card;
           })
           .forEach(item => panel.append(item));
-
-  console.log(data);
-  console.log(itemOnPage);
 }
 
 function generateItems() {
