@@ -107,12 +107,7 @@ const sliderDraw = function(destination) {
     document.querySelectorAll('.card').forEach(item => item.remove());
     let arr = [];
 
-    console.log(state.sliderFirst, state.sliderMiddle, state.sliderLast);
-
-    console.log(state)
-
     if (!state.step) {
-      console.log('if else works');
       state.sliderFirst = 0; state.sliderMiddle =1; state.sliderLast = 2;
       if (document.documentElement.clientWidth >= 1280) {  state.step = 3; }
       if (document.documentElement.clientWidth < 1280 && document.documentElement.clientWidth >= 768) { state.step = 2;}
@@ -123,31 +118,21 @@ const sliderDraw = function(destination) {
         if(sliderArr.indexOf(r) === -1) sliderArr.push(r);
       }
     }
-
-    console.log(state.sliderFirst, state.sliderMiddle, state.sliderLast);
     
     if (destination === 'next') {
-      console.log('next works');
-      console.log(sliderArr);
       if (state.sliderFirst || state.sliderFirst === 0) {
         if (state.sliderFirst + state.step > sliderArr.length - 1) {
           state.sliderFirst = state.sliderFirst + state.step - sliderArr.length;
         } else {
-          console.log('work her');
-          console.log('before', state.sliderFirst);
           state.sliderFirst = state.sliderFirst + state.step;
-          console.log(state.sliderFirst);
         }
       }
 
       if (state.sliderMiddle || state.sliderMiddle === 0) {
         if (state.sliderMiddle + state.step > sliderArr.length - 1) {
           state.sliderMiddle = state.sliderMiddle + state.step - sliderArr.length;
-          console.log('m', state.sliderMiddle);
         } else {
-          console.log(state.step);
           state.sliderMiddle = state.sliderMiddle + state.step;
-          console.log('m', state.sliderMiddle);
         }
       }
 
@@ -170,7 +155,6 @@ const sliderDraw = function(destination) {
       }
       if (state.sliderMiddle || state.sliderMiddle === 0) {
         if (state.sliderMiddle - state.step < 0) {
-          console.log(state.step - state.sliderMiddle);
           state.sliderMiddle = sliderArr.length + state.sliderMiddle - state.step;
         } else {
           state.sliderMiddle -= state.step;
@@ -185,8 +169,6 @@ const sliderDraw = function(destination) {
       }
     }
 
-    console.log('arr', [state.sliderFirst, state.sliderMiddle, state.sliderLast]);
-
     arr = [state.sliderFirst, state.sliderMiddle, state.sliderLast]
       .filter(item => item !== null)
       .map(item => sliderArr[item]);
@@ -198,7 +180,6 @@ function constructSlider(arr) {
         let full = document.querySelectorAll('.full__screen__control');
         let cards = generateHTML(arr.map(item => json[item]), arr);
 
-        console.log(cards);
         cards.forEach(element => {
             full[0].after(element);
         });

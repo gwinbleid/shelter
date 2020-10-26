@@ -19,8 +19,6 @@ window.onclick = function(event) {
 }
 
 function drawModal(data) {
-    console.log(data);
-
     let image = document.getElementById('modal__pet');
 
     let name = document.getElementById('modal__pet__name');
@@ -41,6 +39,4 @@ function drawModal(data) {
     inoculations = data.inoculations;
     diseases = data.diseases;
     parasites = data.parasites;
-
-    console.log(name);
 }
