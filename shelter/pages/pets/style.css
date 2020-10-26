@@ -307,19 +307,26 @@ header .wrapper {
   position: absolute;
   right: 126px;
   top: 30px;
-  /*
-    -webkit-animation: animateteLogo 1s both;
-    animation: animateteLogo 1s both;
+  -webkit-animation: animateteLogo 1s both;
+  animation: animateteLogo 1s both;
+}
 
-    @-webkit-keyframes animateteLogo {
-        from {right: -320px;} 
-        to {right: 126px; }
-    }
+@-webkit-keyframes animateteLogo {
+  from {
+    right: -320px;
+  }
+  to {
+    right: 126px;
+  }
+}
 
-    @keyframes animateteLogo {
-        from {right: -320px;}
-        to {right: 126px;}
-    }*/
+@keyframes animateteLogo {
+  from {
+    right: -320px;
+  }
+  to {
+    right: 126px;
+  }
 }
 
 .shelter__logo {
@@ -338,6 +345,7 @@ header .wrapper {
           align-items: flex-end;
   width: 184px;
   height: 60px;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 767px) {
@@ -724,6 +732,10 @@ main {
   animation-name: animatetop;
   animation-duration: 3s;
   /* Add Animation */
+  -webkit-transition: -webkit-box-shadow .3s;
+  transition: -webkit-box-shadow .3s;
+  transition: box-shadow .3s;
+  transition: box-shadow .3s, -webkit-box-shadow .3s;
 }
 
 @-webkit-keyframes animatetop {
@@ -746,7 +758,8 @@ main {
 
 .slider__container .slider__panel .card:hover {
   cursor: pointer;
-  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+          box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
 }
 
 .slider__container .slider__panel .card:nth-child(4n) {

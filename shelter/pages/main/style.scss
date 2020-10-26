@@ -241,13 +241,8 @@ header {
     position: absolute;
     right: 126px;
     top: 30px;
-
-    -webkit-animation-name: animateteLogo;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-direction: alternate;
-    animation-name: animateteLogo;
-    animation-duration: 1s;
-    animation-direction: alternate;
+    -webkit-animation: animateteLogo 1s both;
+    animation: animateteLogo 1s both;
 
     @-webkit-keyframes animateteLogo {
         from {right: -320px;} 
@@ -320,7 +315,7 @@ header {
             margin-top: -1px;
             left: 0;
             display: block;
-            background: $color-primary;
+            background: $color-dark-xl;
             transition: .5s;
         }
 
@@ -343,36 +338,16 @@ header {
     }
 
     input ~ .burger__nav {
-        display: none; /* Hidden by default */
+        
         position: fixed; /* Stay in place */
         z-index: 1; /* Sit on top */
         right: 0;
         top: 0;
+        left: 0;
         width: 100%; /* Full width */
         height: 100%; /* Full height */
         overflow: hidden;
-        background-color: rgb(41,41,41); /* Fallback color */
-        background: rgba(41, 41, 41, 0.6);
-        transition: 1s;
-
-        -webkit-animation-name: anime_burger;
-        -webkit-animation-duration: 1s;
-        -webkit-animation-direction: alternate;
-        animation-name: anime_burger;
-        animation-duration: 1s;
-        animation-direction: alternate;
-
-
-        /* Add Animation */
-        @-webkit-keyframes anime_burger {
-            from { opacity:0} 
-            to { opacity:1}
-        }
-
-        @keyframes anime_burger {
-            from { opacity:0}
-            to { opacity:1}
-        }
+        background-color: rgba(41,41,41, 0.6); /* Fallback color */
 
         ul {
 
@@ -380,45 +355,24 @@ header {
             width: 320px;
             height: 100vh;
             margin: 0;
+            right: 0;
             padding: 50px;
             padding-top: 125px;
-            right: 0;
-            transition: 1s;
-  
-            background: $color-dark-3xl;
+            background: #ededed;
             list-style-type: none;
             -webkit-font-smoothing: antialiased;
 
-            /* to stop flickering of text in safari */
-  
-            -webkit-animation-name: animatetslide;
-            -webkit-animation-duration: 1s;
-            -webkit-animation-direction: alternate;
-            animation-name: animatetslide;
-            animation-duration: 1s;
-            animation-direction: alternate;
-
-            @-webkit-keyframes animatetslide {
-                from {right: -320px} 
-                to {right: 0; }
-            }
-  
-            @keyframes animatetslide {
-                from {right: -320px;}
-                to {right: 0;}
-            }
 
             @include flex(column, space-between, center);
             list-style-type: none;
 
             li {
                 margin-bottom: 2rem;
-                
             }
     
             .nav__link {
                 text-decoration: none;
-                color: $color-dark-s;
+                color: $color-dark-l;
                 font-size: 1.2rem;
 
                 &:hover {
@@ -428,7 +382,7 @@ header {
             }
     
             .active__link {
-                color: $color-light-l;
+                color: $color-dark-l;
                 border-bottom: 3px solid $color-primary;
             }
         }
@@ -436,16 +390,44 @@ header {
 
     input:checked ~ .burger__nav { 
         display: flex;
-        transition: 1s;
-
+        
         ul {
             @media screen and (max-width: 768px) {
                 @include flex(column, flex-start, center);
-                transform: none;
-                opacity: 1;
-                transition: 1s;
             }
         }
+    }
+}
+
+.animate_top {
+    /* -webkit-animation: animatetop 1s;
+    animation: animatetop 1s;*/ 
+    transform: translate3d(100vw, 0, 0);
+    transition: transform .5s cubic-bezier(0, .52, 0, 1);
+}
+
+@-webkit-keyframes animatetop {
+    from { opacity:0;} 
+    to { opacity:1;}
+}
+
+@keyframes animatetop {
+    from { opacity:0;}
+    to { opacity:1}
+}
+
+.w3-animate-show {
+    transform: translate3d(0vw, 0, 0);
+    /* animation: show 0.8s;
+    animation-fill-mode: forwards;*/
+}
+  
+@keyframes show {
+    0% {
+      opacity: 1
+    }
+    100% {
+      opacity: 0
     }
 }
 

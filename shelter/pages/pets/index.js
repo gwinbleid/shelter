@@ -121,16 +121,6 @@ document.querySelector('#burger').addEventListener('click', function() {
   }
 });
 
-/*burger.addEventListener('animationend', function() {
-  console.log('animate');
-  if (this.classList.contains('w3-animate-show')) {
-    this.classList.remove('w3-animate-show')
-  } else {
-    this.classList.add('w3-animate-show');
-  }
-});*/
-
-
 /************************ */
 
 function panelDraw() {
@@ -277,5 +267,4 @@ window.onclick = function(event) {
       disableBody();
     }
   }
-  
 }

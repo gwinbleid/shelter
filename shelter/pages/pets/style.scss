@@ -249,7 +249,6 @@ header {
     position: absolute;
     right: 126px;
     top: 30px;
-/*
     -webkit-animation: animateteLogo 1s both;
     animation: animateteLogo 1s both;
 
@@ -261,13 +260,14 @@ header {
     @keyframes animateteLogo {
         from {right: -320px;}
         to {right: 126px;}
-    }*/
+    }
 }
 
 .shelter__logo {
     @include flex(column, space-between, flex-end);
     width: 184px;
     height: 60px;
+    text-decoration: none;
 }
 
 .header__nav {
@@ -431,7 +431,7 @@ header {
     animation-fill-mode: forwards;*/
 }
   
-  @keyframes show {
+@keyframes show {
     0% {
       opacity: 1
     }
@@ -541,9 +541,11 @@ main {
                 to {opacity:1}
             }
     
+            transition: box-shadow .3s;
+
             &:hover {
                 cursor: pointer;
-                background-color: $color-light-xl;
+                box-shadow: 0 0 11px rgba(33,33,33,.2); 
             }
     
             &:nth-child(4n) {

@@ -303,12 +303,8 @@ header .wrapper {
   position: absolute;
   right: 126px;
   top: 30px;
-  -webkit-animation-name: animateteLogo;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-direction: alternate;
-  animation-name: animateteLogo;
-  animation-duration: 1s;
-  animation-direction: alternate;
+  -webkit-animation: animateteLogo 1s both;
+  animation: animateteLogo 1s both;
 }
 
 @-webkit-keyframes animateteLogo {
@@ -419,7 +415,7 @@ header .wrapper {
   margin-top: -1px;
   left: 0;
   display: block;
-  background: #F1CDB3;
+  background: #4C4C4C;
   -webkit-transition: .5s;
   transition: .5s;
 }
@@ -444,49 +440,20 @@ header .wrapper {
 }
 
 .burger__button input ~ .burger__nav {
-  display: none;
-  /* Hidden by default */
   position: fixed;
   /* Stay in place */
   z-index: 1;
   /* Sit on top */
   right: 0;
   top: 0;
+  left: 0;
   width: 100%;
   /* Full width */
   height: 100%;
   /* Full height */
   overflow: hidden;
-  background-color: #292929;
+  background-color: rgba(41, 41, 41, 0.6);
   /* Fallback color */
-  background: rgba(41, 41, 41, 0.6);
-  -webkit-transition: 1s;
-  transition: 1s;
-  -webkit-animation-name: anime_burger;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-direction: alternate;
-  animation-name: anime_burger;
-  animation-duration: 1s;
-  animation-direction: alternate;
-  /* Add Animation */
-}
-
-@-webkit-keyframes anime_burger {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes anime_burger {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 .burger__button input ~ .burger__nav ul {
@@ -494,21 +461,12 @@ header .wrapper {
   width: 320px;
   height: 100vh;
   margin: 0;
+  right: 0;
   padding: 50px;
   padding-top: 125px;
-  right: 0;
-  -webkit-transition: 1s;
-  transition: 1s;
-  background: #292929;
+  background: #ededed;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
-  /* to stop flickering of text in safari */
-  -webkit-animation-name: animatetslide;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-direction: alternate;
-  animation-name: animatetslide;
-  animation-duration: 1s;
-  animation-direction: alternate;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -525,31 +483,13 @@ header .wrapper {
   list-style-type: none;
 }
 
-@-webkit-keyframes animatetslide {
-  from {
-    right: -320px;
-  }
-  to {
-    right: 0;
-  }
-}
-
-@keyframes animatetslide {
-  from {
-    right: -320px;
-  }
-  to {
-    right: 0;
-  }
-}
-
 .burger__button input ~ .burger__nav ul li {
   margin-bottom: 2rem;
 }
 
 .burger__button input ~ .burger__nav ul .nav__link {
   text-decoration: none;
-  color: #CDCDCD;
+  color: #545454;
   font-size: 1.2rem;
 }
 
@@ -559,7 +499,7 @@ header .wrapper {
 }
 
 .burger__button input ~ .burger__nav ul .active__link {
-  color: #F6F6F6;
+  color: #545454;
   border-bottom: 3px solid #F1CDB3;
 }
 
@@ -567,8 +507,6 @@ header .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-transition: 1s;
-  transition: 1s;
 }
 
 @media screen and (max-width: 768px) {
@@ -586,11 +524,60 @@ header .wrapper {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    -webkit-transform: none;
-            transform: none;
+  }
+}
+
+.animate_top {
+  /* -webkit-animation: animatetop 1s;
+    animation: animatetop 1s;*/
+  -webkit-transform: translate3d(100vw, 0, 0);
+          transform: translate3d(100vw, 0, 0);
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0, 0.52, 0, 1);
+  transition: -webkit-transform 0.5s cubic-bezier(0, 0.52, 0, 1);
+  transition: transform 0.5s cubic-bezier(0, 0.52, 0, 1);
+  transition: transform 0.5s cubic-bezier(0, 0.52, 0, 1), -webkit-transform 0.5s cubic-bezier(0, 0.52, 0, 1);
+}
+
+@-webkit-keyframes animatetop {
+  from {
+    opacity: 0;
+  }
+  to {
     opacity: 1;
-    -webkit-transition: 1s;
-    transition: 1s;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.w3-animate-show {
+  -webkit-transform: translate3d(0vw, 0, 0);
+          transform: translate3d(0vw, 0, 0);
+  /* animation: show 0.8s;
+    animation-fill-mode: forwards;*/
+}
+
+@-webkit-keyframes show {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 

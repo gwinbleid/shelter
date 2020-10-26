@@ -89,6 +89,12 @@ const json = [
     }
 ];
 
+let state = {
+  burger__open: false
+}
+
+let burger = document.querySelector('.burger__nav');
+let logo = document.querySelector('.shelter__logo');
 
 
 const sliderDraw = function() {
@@ -150,4 +156,26 @@ function disableBody() {
 
 window.onload = function() {
     sliderDraw();
+}
+
+document.querySelector('#burger').addEventListener('click', function() {
+  if (burger.classList.contains('w3-animate-show')) {
+    burger.classList.remove('w3-animate-show');
+  } else {
+    burger.classList.add('w3-animate-show')
+  }
+});
+
+window.onclick = function(event) {
+  if (document.getElementById('burger').checked === true) {
+    if (event.target === burger) {
+      if (burger.classList.contains('w3-animate-show')) {
+        burger.classList.remove('w3-animate-show');
+      } else {
+        burger.classList.add('w3-animate-show')
+      }
+      document.getElementById('burger').checked = false;
+      disableBody();
+    }
+  }
 }
