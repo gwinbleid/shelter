@@ -1,2 +1,1 @@
-# gwinbleid-JS2020Q3
-Private repository for @gwinbleid
+# https://gwinbleid.github.io/shelter/shelter/pages/main/
